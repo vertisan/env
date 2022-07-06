@@ -1,0 +1,6 @@
+*.ovpn
+*.client
+
+StreamSage/
+vscode_workspaces/
+PGP/*-secret.asc
