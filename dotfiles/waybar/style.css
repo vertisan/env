@@ -1,0 +1,241 @@
+@import url("../../.cache/wal/colors-waybar.css");
+
+/* =============================================================================
+ *
+ * Waybar configuration
+ *
+ * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+ *
+ * =========================================================================== */
+/* @define-color highlight #5294e2; */
+/* @define-color base1  #404552; */
+
+@keyframes blink-warning {
+  70% {
+    color: white;
+  }
+
+  to {
+    color: white;
+    border-color: orange;
+  }
+}
+
+@keyframes blink-critical {
+  70% {
+    color: white;
+  }
+
+  to {
+    color: white;
+    border-color: red;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+ * Base styles
+ * -------------------------------------------------------------------------- */
+/* Reset all styles */
+* {
+  border: none;
+  border-radius: 0;
+  /* we use `serif` as a fallback so its clear if our proper font isn't installed */
+  font-family: "Terminus";
+  font-size: 14px;
+  min-height: 0;
+  /* border: none; */
+  /* border-radius: 0; */
+  /* min-height: 0; */
+  /* margin: 1px; */
+  /* padding: 0; */
+}
+
+/** 
+ * Main bar
+ */
+#waybar {
+  /* background: transparent; */
+  color: #bebebe;
+  background-color: #1b2022; /* rgba(29, 31, 37, 0.9); */
+  /* font-family: UbuntuMono; */
+  /* font-size: 14px; */
+}
+
+/**
+ * Workspace Button
+ */
+#workspaces button {
+  padding: 0 18px;
+  background: transparent;
+  color: @color7;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+}
+
+#workspaces button.focused {
+  background: shade(rgba(100, 114, 125, 0.1), 1.5);
+  color: #fff;
+  border-bottom-color: rgba(100, 114, 125, 1);
+}
+
+#workspaces button:hover {
+  box-shadow: inherit;
+  text-shadow: inherit;
+  color: @foreground;
+}
+
+#workspaces button.urgent {
+  border-bottom-color: #c9545d;
+  color: #c9545d;
+}
+
+#mode {
+  background: #64727d;
+  /* border-top: 3px solid @color7; */
+}
+
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#custom-player,
+#mpd,
+#tray,
+#mode,
+#idle_inhibitor,
+#backlight,
+#bluetooth,
+#custom-bluetooth,
+#custom-power,
+#clock,
+#disk,
+#temperature,
+#custom-fanspeed,
+#custom-spotify {
+  padding: 0 10px;
+  margin: 0 4px;
+  transition: border-top-color 1s ease;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+}
+
+#window {
+  margin: 0 20px;
+}
+
+#clock {
+  padding: 0 20px;
+  border-bottom-color: @color3;
+  /* border-bottom-color: rgba(83, 97, 107, 1); */
+}
+
+#battery {
+  /* border-bottom-color: rgba(204, 204, 204, 0.8); */
+  border-bottom-color: @base0D;
+}
+
+#battery.charging {
+  border-bottom-color: rgba(35, 155, 85, 0.8);
+  /* border-bottom-color: @base0B; */
+  animation-name: battery_charging;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+}
+
+@keyframes battery_charging {
+  to {
+    border-bottom-color: orange;
+  }
+}
+
+@keyframes blink {
+  to {
+      background-color: #ffffff;
+      color: black;
+  }
+}
+
+#battery.warning:not(.charging) {
+  background: #f53c3c;
+  color: white;
+  animation-name: blink;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#cpu {
+  /* border-bottom-color: rgba(35, 155, 85, 0.8); */
+  border-bottom-color: @base0C;
+}
+
+#memory {
+  /* background: rgba(155, 88, 182, 0.8);
+  border-top: 3px solid rgba(126, 72, 147, 0.8); */
+  border-bottom-color: rgba(126, 72, 147, 0.8);
+}
+
+#network {
+  /* background: rgba(41, 128, 185, 0.8);
+  border-top: 3px solid rgba(34, 110, 160, 0.8); */
+  border-bottom-color: rgba(34, 110, 160, 0.8);
+}
+
+#network.disconnected {
+  /* background: rgba(245, 60, 60, 0.8);
+  border-top: 3px solid rgba(219, 54, 54, 0.8); */
+}
+
+#bluetooth, #custom-bluetooth {
+  border-bottom-color: @base0B;
+}
+
+#pulseaudio {
+  /* background: rgba(241, 196, 15, 0.8);
+  border-top: 3px solid rgba(190, 155, 13, 0.8); */
+  border-bottom-color: rgba(190, 155, 13, 0.8);
+}
+
+#pulseaudio.muted {
+  /* background: rgba(144, 177, 177, 0.8);
+  border-top: 3px solid rgba(105, 129, 129, 0.8);
+  color: #2a5c45;*/
+  /* border-top: 3px solid rgba(144, 177, 177, 0.8); */
+  border-bottom-color: rgba(144, 177, 177, 0.8);
+}
+
+#backlight {
+  /* border-bottom-color: rgba(177, 106, 13, 0.8); */
+  border-bottom-color: @base09;
+}
+
+#idle_inhibitor {
+  /* border-top: 3px solid @color2; */
+  margin-right: 0;
+  margin-left: 0;
+  padding: 0 4px;
+}
+
+#idle_inhibitor.activated {
+  background: rgba(100, 114, 125, 0.4);
+}
+
+#custom-power {
+  margin-left: 0;
+  padding: 0 10px 0 4px;
+  /* border-top: 3px solid @color2; */
+}
+
+#tray {
+  margin-right: 0;
+  padding-right: 4px;
+  /* border-top: 3px solid @color2; */
+}
+
+#custom-spotify {
+  border-bottom-color: #1db954;
+}
