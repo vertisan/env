@@ -1,0 +1,57 @@
+screenshots
+#effect-blur=15x10
+effect-compose=/home/vertisan/Environment/img_lockscreen.jpg
+
+clock
+timestr=%H:%M %p
+datestr=%a, %e of %B
+
+indicator
+indicator-radius=120
+indicator-thickness=10
+
+key-hl-color=ffffff
+
+separator-color=00000000
+
+# Stream Sage
+inside-color=0029450ff
+inside-clear-color=0029450ff
+inside-caps-lock-color=0029450ff
+inside-ver-color=0029450ff
+inside-wrong-color=0029450ff
+# end Stream Sage
+#inside-color=21242bff
+#inside-clear-color=21242bff
+#inside-caps-lock-color=21242bff
+#inside-ver-color=21242bff
+#inside-wrong-color=21242bff
+
+# Stream Sage
+ring-color=002945ff
+# end Stream Sage
+ring-color=1d1f25ff
+ring-clear-color=ffd204FF
+ring-caps-lock-color=21242bff
+ring-ver-color=ebcb8bff
+ring-wrong-color=d08770ff
+
+line-color=00B0CC00
+line-clear-color=00000000
+line-caps-lock-color=00000000
+line-ver-color=00000000
+line-wrong-color=00000000
+
+text-color=ffffffff
+text-clear-color=ffffffff
+text-caps-lock-color=009ddc00
+text-ver-color=d9d8d800
+text-wrong-color=ee2e2400
+
+bs-hl-color=ee2e24FF
+caps-lock-key-hl-color=ffd204FF
+caps-lock-bs-hl-color=ee2e24FF
+
+font=Cantarell Light
+
+fade-in=0.25
