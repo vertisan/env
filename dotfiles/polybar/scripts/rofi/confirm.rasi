@@ -1,0 +1,33 @@
+/**
+ * Confirm Dialog Rofi styles
+ *
+ * Author: Aditya Shakya
+ * Forked by: Vertisan
+ */
+
+@import "colors.rasi"
+
+* {
+  background-color:   @bga;
+  text-color:         @fg;
+	font:				 	      "Iosevka Nerd Font 10";
+}
+
+window {
+  transparency:       "real";
+  background-color:   @bg;
+  text-color:         @fg;
+	border:							0px;
+	border-color:				@ac;
+  border-radius:      0px;
+	width:							25%;
+  height:             30%;
+  location:           center;
+  x-offset:           0;
+  y-offset:           0;
+}
+
+entry {
+  expand: 				    true;
+  text-color:				  @ac;
+}
