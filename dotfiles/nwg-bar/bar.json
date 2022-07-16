@@ -1,0 +1,26 @@
+[
+  {
+    "label": "Lock",
+    "exec": "bash /home/vertisan/.config/bin/lockscreen.sh",
+    "icon": "/home/vertisan/.config/nwg-bar/images/system-lock-screen.svg"
+  },
+  {
+    "label": "Logout",
+    "exec": "swaymsg exit",
+    "icon": "/home/vertisan/.config/nwg-bar/images/system-log-out.svg"
+  },
+  {
+    "label": "Reboot",
+    "exec": "systemctl reboot",
+    "icon": "/home/vertisan/.config/nwg-bar/images/system-reboot.svg"
+  },
+  {
+    "label": "Shutdown",
+    "exec": "systemctl -i poweroff",
+    "icon": "/home/vertisan/.config/nwg-bar/images/system-shutdown.svg"
+  },
+  {
+    "label": "Suspend",
+    "exec": "systemctl suspend"
+  }
+]
