@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-swaylock --image $HOME/Environment/sway/img_lockscreen.jpg
+swaylock --image $HOME/Environment/media/wallpapers/current_lockscreen.jpg
 
 #swaylock --indicator-radius 100 \
 #  --indicator-thickness 12 \
@@ -12,4 +12,4 @@ swaylock --image $HOME/Environment/sway/img_lockscreen.jpg
 #  --text-color ECEFF4 \
 #  --text-caps-lock-color ECEFF4 \
 #  --show-failed-attempts \
-#  -i /home/vertisan/Environment/img_lockscreen.jpg
+#  -i /home/vertisan/Environment/media/wallpapers/current_lockscreen.jpg
