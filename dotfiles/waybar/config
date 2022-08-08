@@ -59,7 +59,7 @@
       "disable-scroll": true,
       "disable-markup": false,
       "all-outputs": true,
-      "format": "<span font='14'>{icon}</span>",
+      "format": "<span font='12'>{icon}</span>",
       "format-icons": {
         "1": "",
         "2": "",

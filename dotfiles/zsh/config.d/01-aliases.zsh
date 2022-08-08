@@ -27,6 +27,8 @@ alias pyformat="autopep8 $*"
 alias ls="lsd"
 alias img="imv $*"
 alias copy="xclip -sel c < $1"
+alias bt="bluetoothctl $*"
+alias btc="bluetoothctl connect $*"
 
 ## ---------------------
 ## Editor
