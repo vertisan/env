@@ -1,12 +1,5 @@
-screenshots
-#effect-blur=15x10
-effect-compose=/home/v/Environment/media/wallpapers/current_lockscreen.jpg
+image=/home/vertisan/Environment/media/wallpapers/current_lockscreen.jpg
 
-clock
-timestr=%H:%M %p
-datestr=%a, %e of %B
-
-indicator
 indicator-radius=98
 indicator-thickness=8
 
@@ -44,4 +37,3 @@ caps-lock-bs-hl-color=ee2e24FF
 
 font=Saira-Bold
 
-fade-in=0.25

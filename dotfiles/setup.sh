@@ -1,5 +1,5 @@
-#!/bin/bash
-set -eo
+#!/bin/zsh
+#set -eo
 
 
 DOTFILES_PATH="$PWD"
