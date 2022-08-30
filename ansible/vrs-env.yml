@@ -1,0 +1,12 @@
+---
+- name: VRS Environment
+  hosts: localhost
+  vars:
+    homedir: "{{ lookup('env', 'HOME') }}"
+    srcdir: "{{ homedir }}/vrs-ansible"
+    username: "{{ lookup('env', 'USER') }}"
+
+  roles:
+    - { role: yay, tags: 'yay' }
+    - { role: zsh, tags: 'zsh' }
+    - { role: alacritty, tags: 'alacritty' }

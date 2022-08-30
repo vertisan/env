@@ -1,0 +1,5 @@
+---
+- name: Install & load configuration for Alacritty
+  yay:
+    name: alacritty
+    state: present

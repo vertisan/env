@@ -1,0 +1,12 @@
+---
+- name: Install ZSH
+  community.general.pacman:
+    name: 
+      - zsh
+    state: present
+
+- name: Change default shell to ZSH for "{{ username }}"
+  become: true
+  user:
+    name: "{{ username }}"
+    shell: /usr/bin/zsh

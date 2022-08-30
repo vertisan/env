@@ -1,6 +1,0 @@
-[submodule "dotfiles/tmux/conf/powerline"]
-	path = dotfiles/tmux/conf/powerline
-	url = git@github.com:erikw/tmux-powerline.git
-[submodule "packages/swaylock-effects"]
-	path = packages/swaylock-effects
-	url = git@github.com:jirutka/swaylock-effects.git

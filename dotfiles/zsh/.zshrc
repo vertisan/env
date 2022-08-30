@@ -45,6 +45,8 @@ umask u=rwx,g=rx,o=r
 
 # for conf in "$VRS_ENV/dotfiles/zsh/config.d/"*.zsh; do
 for conf in $(find "$VRS_ENV/dotfiles/zsh/config.d" -name "*.zsh"); do
+  h2 "Loading config '${conf}' for ZSH..."
   source "${conf}"
 done
 unset conf
+

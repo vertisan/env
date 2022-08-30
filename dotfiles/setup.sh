@@ -61,6 +61,14 @@ ln -sfn "$DOTFILES_PATH/nwg-bar" "$DOTCONFIG_PATH"
 
 
 #####
+### N V I M
+#####
+# yay -S neovim
+ln -sfn "$DOTFILES_PATH/nvim" "$DOTCONFIG_PATH"
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
+#####
 ### P O L Y B A R
 #####
 # ln -sfn "$DOTFILES_PATH/polybar" "$DOTCONFIG_PATH"
