@@ -1,5 +1,14 @@
 ---
-- name: Install & load configuration for Alacritty
-  yay:
-    name: alacritty
-    state: present
+- name: VRS | Alacritty
+  block:
+    - name: Install Alacritty via AUR 
+      aur:
+        name: alacritty
+        state: present
+
+    - name: Make symlink to configuration
+      file:
+        src: "{{ envdir }}/dotfiles/alacritty"
+        dest: "{{ user_config_dir }}/alacritty"
+        state: link
+        force: true

@@ -4,9 +4,12 @@
   vars:
     homedir: "{{ lookup('env', 'HOME') }}"
     srcdir: "{{ homedir }}/vrs-ansible"
+    envdir: "{{ homedir }}/Environment"
+    user_config_dir: "{{ homedir }}/.config"
     username: "{{ lookup('env', 'USER') }}"
 
   roles:
+    - { role: system, tags: 'system' }
     - { role: yay, tags: 'yay' }
     - { role: zsh, tags: 'zsh' }
     - { role: alacritty, tags: 'alacritty' }

@@ -1,0 +1,9 @@
+---
+- name: System upgrade
+  community.general.pacman:
+    update_cache: yes
+    upgrade: yes
+
+# - name: Prepare tmp directory for Ansible
+#   command:
+#     cmd: mkdir -p $USER/vrs-ansible
