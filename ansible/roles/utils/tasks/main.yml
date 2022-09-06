@@ -1,0 +1,21 @@
+---
+- name: VRS | Additional utils and packages
+  block:
+    - name: Polkit & keyring things
+      aur:
+        name:
+          - polkit
+          - gnome-keyring
+          - libsecret
+          - libgnome-keyring
+    - name: IDE & editors
+      aur:
+        name:
+          - visual-studio-code-bin
+          - jetbrains-toolbox
+    - name: Browsers
+      aur:
+        name:
+          - brave-bin
+          - firefox
+          - google-chrome

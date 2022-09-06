@@ -1,0 +1,18 @@
+---
+- name: Sway Core
+  block:
+    - name: Install Sway & dependencies
+      aur:
+        name:
+          - sway
+          - swayr
+          - swaylock-effects
+          - swayidle
+        state: present
+
+    - name: Make symlink to Sway configuration
+      file:
+        src: "{{ envdir }}/dotfiles/sway-env/sway"
+        dest: "{{ user_config_dir }}/sway"
+        state: link
+        force: true

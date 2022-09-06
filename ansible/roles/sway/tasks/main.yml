@@ -1,0 +1,8 @@
+---
+- name: VRS | Sway Environment
+  include_tasks: "{{ item }}"
+  loop:
+    - sway-core.yml
+    - sway-session.yml
+    - sway-swayr.yml
+    - sway-swaylock.yml

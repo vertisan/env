@@ -1,0 +1,21 @@
+---
+- name: VRS | Node.js
+  block:
+    - name: Install Node.js (LTS)
+      aur:
+        name:
+          - npm
+          - nodejs
+          - nvm
+        state: present
+
+    - name: NPM global preparation
+      shell: |
+        mkdir -p ~/.npm-global
+        npm config set prefix '~/.npm-global'
+        export PATH=~/.npm-global/bin:$PATH
+
+    - name: Install the current LTS via NVM
+      shell: |
+        source /usr/share/nvm/init-nvm.sh
+        nvm install --lts

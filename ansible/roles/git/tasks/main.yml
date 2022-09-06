@@ -1,0 +1,15 @@
+---
+- name: VRS | Git
+  block:
+  - name: Install Git
+    community.general.pacman:
+      name: 
+        - git
+      state: present
+
+  - name: Make symlink to configuration
+    file:
+      src: "{{ envdir }}/dotfiles/git/.gitconfig"
+      dest: "{{ homedir }}/.gitconfig"
+      state: link
+      force: true

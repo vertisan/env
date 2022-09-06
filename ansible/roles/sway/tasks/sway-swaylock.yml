@@ -1,0 +1,15 @@
+---
+- name: Sway | Swaylock
+  block:
+    - name: Install Swaylock
+      aur:
+        name:
+          - swaylock-effects
+        state: present
+
+    - name: Make symlink to configuration
+      file:
+        src: "{{ envdir }}/dotfiles/sway-env/swaylock"
+        dest: "{{ user_config_dir }}/swaylock"
+        state: link
+        force: true

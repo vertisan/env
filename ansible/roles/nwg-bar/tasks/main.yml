@@ -1,0 +1,15 @@
+---
+- name: VRS | NWG-BAR
+  block:
+    - name: Install nwg-bar
+      aur:
+        name:
+          - nwg-bar
+        state: present
+
+    - name: Make symlink to configuration
+      file:
+        src: "{{ envdir }}/dotfiles/nwg-bar"
+        dest: "{{ user_config_dir }}/nwg-bar"
+        state: link
+        force: true

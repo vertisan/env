@@ -1,0 +1,15 @@
+---
+- name: VRS | Mako
+  block:
+    - name: Install Mako
+      aur:
+        name:
+          - mako
+        state: present
+
+    - name: Make symlink to configuration
+      file:
+        src: "{{ envdir }}/dotfiles/mako"
+        dest: "{{ user_config_dir }}/mako"
+        state: link
+        force: true

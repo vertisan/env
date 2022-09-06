@@ -1,0 +1,9 @@
+---
+- name: Sway | Swayr
+  block:
+    - name: Make symlink to Swayr configuration
+      file:
+        src: "{{ envdir }}/dotfiles/sway-env/swayr"
+        dest: "{{ user_config_dir }}/swayr"
+        state: link
+        force: true

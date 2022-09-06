@@ -1,9 +1,15 @@
 ---
-- name: System upgrade
-  community.general.pacman:
-    update_cache: yes
-    upgrade: yes
+- name: VRS | System
+  block:
+  - name: System full-upgrade
+    aur:
+      update_cache: yes
+      upgrade: yes
 
-# - name: Prepare tmp directory for Ansible
-#   command:
-#     cmd: mkdir -p $USER/vrs-ansible
+  - name: Prepare tmp directory for Ansible
+    command:
+      cmd: mkdir -p "{{ homedir }}/vrs-ansible"
+
+  - name: Preapre tmp directory for yay
+    command:
+      cmd: mkdir -p "{{ homedir }}/vrs-ansible/yay"

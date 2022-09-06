@@ -1,0 +1,30 @@
+---
+- name: VRS | Kanshi
+  block:
+    - name: Install Kanshi
+      aur:
+        name:
+          - kanshi
+        state: present
+
+    - name: Make symlink to configuration
+      file:
+        src: "{{ envdir }}/dotfiles/kanshi"
+        dest: "{{ user_config_dir }}/kanshi"
+        state: link
+        force: true
+
+    - name: Make symlink to the service
+      file:
+        src: "{{ user_config_dir }}/kanshi/systemd/user/kanshi.service"
+        dest: "{{ user_config_dir }}/systemd/user/kanshi.service"
+        state: link
+        force: true
+
+    - name: Service preparation & start
+      ansible.builtin.systemd:
+        name: kanshi
+        state: started
+        enabled: yes
+        daemon_reload: true
+        scope: user

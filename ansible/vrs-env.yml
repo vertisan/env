@@ -9,7 +9,15 @@
     username: "{{ lookup('env', 'USER') }}"
 
   roles:
-    - { role: system, tags: 'system' }
-    - { role: yay, tags: 'yay' }
-    - { role: zsh, tags: 'zsh' }
-    - { role: alacritty, tags: 'alacritty' }
+    - { role: utils, tags: "utils" }
+    - { role: git, tags: "git" }
+    - { role: yay, tags: "yay" }
+    # - { role: system, tags: 'system' }
+    - { role: zsh, tags: "zsh" }
+    - { role: alacritty, tags: "alacritty" }
+    - { role: sway, tags: "sway" }
+    - { role: kanshi, tags: "kanshi" }
+    - { role: mako, tags: "mako" }
+    - { role: neovim, tags: "neovim" }
+    - { role: nwg-bar, tags: "nwg-bar" }
+    - { role: node, tags: "node" }
