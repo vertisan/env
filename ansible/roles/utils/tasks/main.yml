@@ -19,3 +19,36 @@
           - brave-bin
           - firefox
           - google-chrome
+    - name: Work
+      aur:
+        name:
+          - mattermost-desktop
+          - openvpn3
+    - name: Fonts
+      aur:
+        name:
+          - terminus-font
+          - otf-font-awesome
+    - name: Hardware
+      aur:
+        name:
+          - thinkfan
+          - lm_sensors
+    - name: Global
+      aur:
+        name:
+          - zip
+          - unzip
+          - slurp
+          - neofetch
+          - fzf
+          - mc
+          - iwd
+          - kbd
+          - thunderbird
+    - name: Media
+      aur:
+        name:
+          - vlc
+          - playerctl
+          - spotify

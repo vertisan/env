@@ -1,16 +1,17 @@
 ---
-- name: Sway Session
+- name: Sway IDLE
   block:
     - name: Make symlink to the service(s)
       file:
-        src: "{{ envdir }}/dotfiles/sway-env/systemd/user/sway-session.target"
-        dest: "{{ user_config_dir }}/systemd/user/sway-session.target"
+        src: "{{ envdir }}/dotfiles/sway-env/systemd/user/swayidle.service"
+        dest: "{{ user_config_dir }}/systemd/user/swayidle.service"
         state: link
         force: true
 
     - name: Service preparation & start
       ansible.builtin.systemd:
-        name: sway-session.target
+        name: swayidle.service
+        enabled: true
         state: started
         daemon_reload: true
         scope: user
