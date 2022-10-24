@@ -1,0 +1,23 @@
+---
+- name: VRS | Wal
+  block:
+    - name: Install Wal
+      aur:
+        name:
+          - python-pywal
+
+    - name: Make symlink to configuration
+      become: false
+      file:
+        src: "{{ envdir }}/dotfiles/wal"
+        dest: "{{ user_config_dir }}/wal"
+        state: link
+        force: true
+
+    - stat:
+        path: "{{ user_config_dir }}/wal"
+      register: sym
+
+    - debug:
+        msg: "islnk isn't defined (path doesn't exist)"
+      when: sym.stat.islnk is not defined

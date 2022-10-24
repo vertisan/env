@@ -20,4 +20,5 @@
     - { role: mako, tags: "mako" }
     - { role: neovim, tags: "neovim" }
     - { role: nwg-bar, tags: "nwg-bar" }
-    - { role: node, tags: "node" }
+    - { role: nodejs, tags: "nodejs" }
+    - { role: wal, tags: "wal" }

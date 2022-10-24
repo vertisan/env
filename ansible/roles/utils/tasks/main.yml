@@ -46,6 +46,11 @@
           - iwd
           - kbd
           - thunderbird
+    - name: DevOps
+      aur:
+        name:
+          - vault
+          - terraform
     - name: Media
       aur:
         name:
