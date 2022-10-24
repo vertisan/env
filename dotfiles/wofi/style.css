@@ -15,15 +15,17 @@ Arc-Dark Color Scheme
 }
 
 window {
+  background: #323641;
   border: 1px solid @highlight;
 }
 
 #input {
   margin-bottom: 15px;
-  padding: 3px;
+  padding: 3px 10px;
   border-radius: 5px;
   border: none;
   color: white;
+  background: #404552;
 }
 
 #inner-box {
@@ -59,4 +61,3 @@ window {
 
 #text:selected {
 }
-
