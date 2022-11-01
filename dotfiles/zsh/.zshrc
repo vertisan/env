@@ -21,8 +21,16 @@ export DISABLE_MAGIC_FUNCTIONS=true
 export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 export DISABLE_UNTRACKED_FILES_DIRTY=true
 
+
+declare -i term_width=120
 h1() {
-  printf "\e[1;33m==>\e[37;1m $*\e[0m\n"
+  declare border padding text
+  border='\e[1;34m'"$(printf '=%.0s' $(seq 1 "$term_width"))"'\e[0m'
+  padding="$(printf ' %.0s' $(seq 1 $(((term_width - $(wc -m <<<"$*")) / 2))))"
+  text="\\e[1m$*\\e[0m"
+  echo -e "$border"
+  echo -e "${padding}${text}${padding}"
+  echo -e "$border"
 }
 h2() {
   printf "\e[1;33m===>\e[37;1m $*\e[0m\n"

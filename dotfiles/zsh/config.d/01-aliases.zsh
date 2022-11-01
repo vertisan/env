@@ -29,6 +29,7 @@ alias img="imv $*"
 alias copy="xclip -sel c < $1"
 alias bt="bluetoothctl $*"
 alias btc="bluetoothctl connect $*"
+alias cp="rsync -avh $*"
 
 ## ---------------------
 ## Editor

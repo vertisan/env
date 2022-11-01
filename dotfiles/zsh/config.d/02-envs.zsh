@@ -1,6 +1,11 @@
 export NVM_LAZY_LOAD=true
 export NVM_COMPLETION=true
 
+## GPG
+export KEYID=CC836A50CF78C685CA80EBC7D1DD451A7D77EBA3
+export GNUPGHOME=~/.gnupg
+export GPG_TTY=$(tty)
+
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="${PATH}:${HOME}/.local/bin/"
 # These paths go always last!
