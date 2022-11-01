@@ -1,0 +1,216 @@
+[
+  {
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "modules-left": [
+      "sway/mode",
+      "custom/bluetooth",
+      "custom/spotify"
+    ],
+    "modules-center": [
+      "sway/workspaces"
+    ],
+    "modules-right": [
+      "idle_inhibitor",
+      // "network",
+      "battery",
+      "clock",
+      "tray",
+      "custom/power"
+    ],
+    "idle_inhibitor": {
+      "format": "<span font='12'>{icon}</span>",
+      "format-icons": {
+        "activated": "",
+        "deactivated": ""
+      }
+    },
+    "battery": {
+      "states": {
+        "good": 90,
+        "warning": 25,
+        "critical": 15
+      },
+      "format": "{capacity}% <span font='12'>{icon}</span>",
+      "format-full": "<span font='12'></span>",
+      "format-icons": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    "clock": {
+      "interval": 1,
+      // "format-alt": " {:%d-%m-%Y}",
+      "format": "{:%H:%M, %d-%m-%Y}",
+      "tooltip-format": "{:%e %B %Y}",
+      "on-click": "gnome-calendar"
+    },
+    "sway/mode": {
+      "format": "{}",
+      "tooltip": false
+    },
+    "sway/workspaces": {
+      "disable-scroll": true,
+      "disable-markup": false,
+      "all-outputs": true,
+      "format": "<span font='10'>{icon}</span>",
+      "format-icons": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "6": "",
+        "10": ""
+      }
+    },
+    "tray": {
+      "icon-size": 16,
+      "spacing": 10
+    },
+    "custom/power": {
+      "format": "<span font='12'></span>",
+      "on-click": "exec ~/.config/waybar/scripts/power-menu.sh",
+      "tooltip": false
+    },
+    "network": {
+      "interval": 5,
+      "format-wifi": "{essid} ({signalStrength}%) ", // Icon: wifi
+      "format-ethernet": "{ifname}: {ipaddr}/{cidr} ", // Icon: ethernet
+      "format-disconnected": "Disconnected ⚠",
+      "tooltip-format": "{ifname}: {ipaddr}",
+      //      "on-click": "alacritty -e 'nmtui'",
+    },
+    "network#vpn": {
+      "interface": "tun0",
+      "format": "  {essid} ({signalStrength}%)",
+      "format-disconnected": "⚠  Disconnected",
+      "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+      "interval": 5,
+    },
+    "custom/bluetooth": {
+      "exec": "$HOME/.config/waybar/scripts/bluetooth-status.sh",
+      "interval": 2,
+      "format": "{} "
+    },
+    "custom/spotify": {
+      "exec": "/usr/bin/python3 ~/.config/waybar/scripts/mediaplayer.py --player spotify",
+      "format": "{} <span font='12'></span>",
+      "return-type": "json",
+      "on-click": "playerctl --player=spotify play-pause",
+      "on-scroll-up": "playerctl --player=spotify next",
+      "on-scroll-down": "playerctl --player=spotify previous"
+    }
+  },
+  {
+    "layer": "top",
+    "position": "bottom",
+    "height": 25,
+    "modules-left": [
+      "cpu",
+      "memory",
+      "disk",
+      "custom/fanspeed",
+      "temperature",
+    ],
+    "modules-center": [],
+    "modules-right": [
+      "network#vpn_vrs",
+      "network#vpn_streamsage",
+      "network#vpn_office",
+      "pulseaudio",
+      "backlight",
+    ],
+    "network#vpn_vrs": {
+      "interface": "vrs",
+      "format": "VRS [{ipaddr}/{cidr}] ",
+      "format-disconnected": "",
+      "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+    },
+    "network": {
+      "interval": 5,
+      "format-wifi": "{essid} ({signalStrength}%) ", // Icon: wifi
+      "format-ethernet": "{ifname}: {ipaddr}/{cidr} ", // Icon: ethernet
+      "format-disconnected": "Disconnected ⚠",
+      "tooltip-format": "{ifname}: {ipaddr}",
+    },
+    "network#vpn_streamsage": {
+      "interface": "tun0",
+      "format": "VPC [{ipaddr}/{cidr}] ",
+      "format-disconnected": "",
+      "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+    },
+    "network#vpn_office": {
+      "interface": "ppp0",
+      "format": "GL #1 [{ipaddr}/{cidr}] ",
+      "format-disconnected": "",
+      "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+    },
+    "temperature": {
+      "interval": 5,
+      "format": "{temperatureC}°C ",
+      "interval": 3
+    },
+    "custom/fanspeed": {
+      "format": "{} ",
+      "exec": "$HOME/.config/waybar/scripts/fanspeed.sh",
+      "interval": 3
+    },
+    "backlight": {
+      "device": "intel_backlight",
+      "format": "{percent}% {icon}",
+      "format-icons": [
+        "",
+        ""
+      ]
+    },
+    "pulseaudio": {
+      "scroll-step": 1,
+      "format": "{volume}% <span font='11'>{icon}</span>",
+      "format-bluetooth": "{volume}% <span font='11'>{icon} </span>",
+      "format-muted": " Muted",
+      "format-icons": {
+        "headphones": " ",
+        "handsfree": "",
+        "headset": "",
+        "phone": " ",
+        "portable": " ",
+        "car": " ",
+        "default": [
+          "",
+          ""
+        ]
+      },
+      "on-click": "pavucontrol",
+      "on-scroll-up": "pactl set-sink-volume 0 2%+",
+      "on-scroll-down": "pactl set-sink-volume 0 2%-",
+    },
+    "memory": {
+      "interval": 5,
+      "format": "RAM: {used:0.1f}/{total:0.1f}G", // Icon: memory
+      "on-click": "alacritty -e 'htop'",
+      "states": {
+        "warning": 70,
+        "critical": 90
+      }
+    },
+    "cpu": {
+      "interval": 5,
+      "format": "CPU: {usage}%",
+      "states": {
+        "warning": 70,
+        "critical": 90,
+      },
+      "on-click": "alacritty -e 'htop'",
+    },
+    "disk": {
+      "interval": 30,
+      "format": "{used}/{total} ({percentage_used}%)",
+      "path": "/"
+    },
+  }
+]

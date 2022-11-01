@@ -1,0 +1,146 @@
+#import:
+#  - ~/.cache/wal/colors-alacritty.yml
+
+env:
+  TERM: xterm-256color
+window:
+  opacity: 0.8
+  dimensions:
+    columns: 80
+    lines: 20
+  position:
+    x: 0
+    y: 0
+
+  padding:
+    x: 12
+    y: 12
+
+  dynamic_padding: true
+  dynamic_title: true
+  decorations: none
+  class:
+    instance: Alacritty
+    general: Alacritty
+
+scrolling:
+  history: 10000
+  multiplier: 3
+
+# Font configuration
+font:
+  normal:
+    family: Terminus
+    #    family: xos4 Terminus
+    style: Regular
+  size: 9.5
+  offset:
+    x: 0
+    y: 1
+
+#background_opacity: 0.9
+
+selection:
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+  ave_to_clipboard: true
+
+cursor:
+  style: Beam
+
+shell:
+  program: /bin/zsh
+  args:
+    - -l
+
+working_directory: None
+
+#mouse:
+#  hide_when_typing: true
+#  url:
+#    launcher:
+#      program: xdg-open
+#      args: []
+
+mouse_bindings:
+  - { mouse: Middle, mods: Shift, action: PasteSelection }
+  - { mouse: Right, mods: Shift, action: Paste }
+  - { mouse: Middle, action: None }
+  - { mouse: Right, action: None }
+
+key_bindings:
+  - { key: Return, mods: Control|Shift, action: SpawnNewInstance }
+  - { key: V, mods: Alt, action: Paste }
+  - { key: J, mods: Alt, action: IncreaseFontSize }
+  - { key: K, mods: Alt, action: DecreaseFontSize }
+  # - { key: J,        mods: Shift, action: ScrollLineUp}
+  # - { key: K,        mods: Shift, action: ScrollLineDown}
+  # { mouse: Middle, action: PasteSelection }
+  #- { key: Paste,                                action: Paste          }
+  #- { key: Copy,                                 action: Copy           }
+  #- { key: L,         mods: Control,             action: ClearLogNotice }
+  #- { key: L,         mods: Control, mode: ~Vi,  chars: "\x0c"          }
+  - { key: PageUp, mods: Shift, action: ScrollPageUp }
+  - { key: PageDown, mods: Shift, action: ScrollPageDown }
+  #- { key: Home,      mods: Shift,   mode: ~Alt, action: ScrollToTop,   }
+  #- { key: End,       mods: Shift,   mode: ~Alt, action: ScrollToBottom }
+
+colors:
+  # COLORSCHEME: dracula.yaml
+  # Default colors
+  primary:
+    background: "0x282a36"
+    foreground: "0xf8f8f2"
+
+  # Normal colors
+  cursor:
+    text: "0x2c2c2c"
+    cursor: "0xd9d9d9"
+
+  # Normal colors
+  vi_mode_cursor:
+    text: CellBackground
+    cursor: CellForeground
+  search:
+    matches:
+      foreground: "#44475a"
+      background: "#50fa7b"
+    focused_match:
+      foreground: "#44475a"
+      background: "#ffb86c"
+  footer_bar:
+    background: "#282a36"
+    foreground: "#f8f8f2"
+  line_indicator:
+    foreground: None
+    background: None
+  selection:
+    text: "#000000"
+    background: "#b3d7ff"
+  normal:
+    black: "#3f4451"
+    red: "#e05561"
+    green: "#8cc265"
+    yellow: "#d18f52"
+    blue: "#4aa5f0"
+    magenta: "#c162de"
+    cyan: "#42b3c2"
+    white: "#d7dae0"
+  bright:
+    black: "#4f5666"
+    red: "#ff616e"
+    green: "#a5e075"
+    yellow: "#f0a45d"
+    blue: "#4dc4ff"
+    magenta: "#de73ff"
+    cyan: "#4cd1e0"
+    white: "#e6e6e6"
+  dim:
+    black: "#3f4451"
+    red: "#e05561"
+    green: "#8cc265"
+    yellow: "#d18f52"
+    blue: "#4aa5f0"
+    magenta: "#c162de"
+    cyan: "#42b3c2"
+    white: "#d7dae0"
+  indexed_colors: []

@@ -1,0 +1,59 @@
+profile home {
+  output eDP-1 mode 1920x1080@60Hz position 0,0
+  output "Dell Inc. DELL S2340L 5FYJ532S0CGT" mode 1920x1080@60Hz position 3840,0
+  output "Dell Inc. DELL S2340L 5FYJ53BK07AT" mode 1920x1080@60Hz position 1920,0
+}
+
+profile office_dell_management_1 {
+  output eDP-1 mode 1920x1080@60Hz position 0,0
+  output "Dell Inc. DELL U2421HE J2L8223" mode 1920x1080@60Hz position 1920,0
+  output "Dell Inc. DELL U2421HE DT2K123" mode 1920x1080@60Hz position 3840,0
+}
+
+profile office_dell_management_2 {
+  output eDP-1 mode 1920x1080@60Hz position 0,0
+  output "Dell Inc. DELL U2421HE FB2K123" mode 1920x1080@60Hz position 1920,0
+  output "Dell Inc. DELL U2421HE 64L8223" mode 1920x1080@60Hz position 3840,0
+}
+
+profile office_dell_management_3 {
+  output eDP-1 mode 1920x1080@60Hz position 0,0
+  output "Dell Inc. DELL U2421HE JV2K123" mode 1920x1080@60Hz position 1920,0
+  output "Dell Inc. DELL U2421HE GW2K123" mode 1920x1080@60Hz position 3840,0
+}
+
+profile office_dell_management_4 {
+  output eDP-1 mode 1920x1080@60Hz position 0,0
+  output "Dell Inc. DELL U2421HE DW2K123" mode 1920x1080@60Hz position 1920,0
+  output "Dell Inc. DELL U2421HE 6T2K123" mode 1920x1080@60Hz position 3840,0
+}
+
+profile office_dell_workers_1 {
+  output eDP-1 mode 1920x1080@60Hz position 0,0
+  output "Dell Inc. DELL U2421HE GX1K123" mode 1920x1080@60Hz position 1920,0
+  output "Dell Inc. DELL U2421HE 94L8223" mode 1920x1080@60Hz position 3840,0
+}
+
+profile office_dell_workers_2 {
+  output eDP-1 mode 1920x1080@60Hz position 0,0
+  output "Dell Inc. DELL U2421HE 2F2K123" mode 1920x1080@60Hz position 1920,0
+  output "Dell Inc. DELL U2421HE FW2K123" mode 1920x1080@60Hz position 3840,0
+}
+
+profile office_dell_workers_3 {
+  output eDP-1 mode 1920x1080@60Hz position 0,0
+  output "Dell Inc. DELL U2421HE 8W2K123" mode 1920x1080@60Hz position 1920,0
+  output "Dell Inc. DELL U2421HE 6W2K123" mode 1920x1080@60Hz position 3840,0
+}
+
+profile office_dell_workers_4 {
+  output eDP-1 mode 1920x1080@60Hz position 0,0
+  output "Dell Inc. DELL U2421HE 9G2K123" mode 1920x1080@60Hz position 1920,0
+  output "Dell Inc. DELL U2421HE 82L8223" mode 1920x1080@60Hz position 3840,0
+}
+
+profile office_dell_workers_small_1 {
+  output eDP-1 mode 1920x1080@60Hz position 0,0
+  output "Dell Inc. DELL U2421HE FV2K123" mode 1920x1080@60Hz position 1920,0
+  output "Dell Inc. DELL U2421HE 5W2K123" mode 1920x1080@60Hz position 3840,0
+}

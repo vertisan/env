@@ -1,0 +1,11 @@
+
+# https://github.com/altercation/solarized#the-values
+font=Terminus 10
+background-color={color2}
+text-color={background}
+border-color={background}
+default-timeout=5000
+
+[urgency=high]
+text-color=#CB4B16
+

@@ -1,0 +1,217 @@
+/*@import url("../../.cache/wal/colors-waybar.css");*/
+
+/* =============================================================================
+ *
+ * Waybar configuration
+ *
+ * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+ *
+ * =========================================================================== */
+/* @define-color highlight #5294e2; */
+/* @define-color base1  #404552; */
+
+@keyframes blink-warning {
+  70% {
+    color: white;
+  }
+
+  to {
+    color: white;
+    border-color: orange;
+  }
+}
+
+@keyframes blink-critical {
+  70% {
+    color: white;
+  }
+
+  to {
+    color: white;
+    border-color: red;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+ * Base styles
+ * -------------------------------------------------------------------------- */
+/* Reset all styles */
+* {
+  border: none;
+  border-radius: 0;
+  /* we use `serif` as a fallback so its clear if our proper font isn't installed */
+  font-family: "Terminus";
+  font-size: 14px;
+  min-height: 0;
+}
+
+/**
+ * Main bar
+ */
+#waybar {
+  color: #bebebe;
+  background-color: rgba(0, 0, 0, 1); /* rgba(29, 31, 37, 0.9); */
+}
+
+/**
+ * Workspace Button
+ */
+#workspaces button {
+  padding: 0 10px;
+  background: transparent;
+  color: @color7;
+  border-top: 2px solid transparent;
+}
+
+#workspaces button.focused {
+  background: shade(rgba(100, 114, 125, 0.1), 1.5);
+  color: #fff;
+  border-top-color: rgba(100, 114, 125, 1);
+}
+
+#workspaces button:hover {
+  box-shadow: inherit;
+  text-shadow: inherit;
+  color: @foreground;
+}
+
+#workspaces button.urgent {
+  border-top-color: #c9545d;
+  color: #c9545d;
+}
+
+#mode {
+  background: #64727d;
+}
+
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#custom-player,
+#mpd,
+#tray,
+#mode,
+#idle_inhibitor,
+#backlight,
+#bluetooth,
+#custom-bluetooth,
+#custom-power,
+#clock,
+#disk,
+#temperature,
+#custom-fanspeed,
+#custom-spotify {
+  padding: 0 10px;
+  margin: 0 4px;
+  transition: border-top-color 1s ease;
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+}
+
+#window {
+  margin: 0 20px;
+}
+
+#clock {
+  padding: 0 20px;
+  border-top-color: @color3;
+}
+
+#battery {
+  border-top-color: @base0D;
+}
+
+#battery.charging {
+  border-top-color: rgba(8, 214, 204, 0.8);
+  animation-name: battery_charging;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+}
+
+@keyframes battery_charging {
+  to {
+    border-top-color: orange;
+  }
+}
+
+@keyframes blink {
+  to {
+      background-color: #ffffff;
+      color: black;
+  }
+}
+
+#battery.warning:not(.charging) {
+  background: #f53c3c;
+  color: white;
+  animation-name: blink;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#cpu {
+  border-bottom-color: @base0C;
+}
+
+#memory {
+  border-bottom-color: rgba(126, 72, 147, 0.8);
+}
+
+#network {
+  border-bottom-color: rgba(34, 110, 160, 0.8);
+}
+
+#network.disconnected {
+}
+
+#bluetooth, #custom-bluetooth {
+  border-bottom-color: @base0B;
+}
+
+#pulseaudio {
+  border-bottom-color: rgba(190, 155, 13, 0.8);
+}
+
+#pulseaudio.muted {
+  border-bottom-color: rgba(214, 49, 43, 0.8);
+}
+
+#backlight {
+  border-bottom-color: @base09;
+}
+
+#idle_inhibitor {
+  margin-right: 0;
+  margin-left: 0;
+  padding: 0 4px;
+}
+
+#idle_inhibitor.activated {
+  background: rgba(100, 114, 125, 0.4);
+}
+
+#custom-power {
+  margin-left: 0;
+  padding: 0 10px 0 4px;
+  /* border-top: 3px solid @color2; */
+}
+
+#tray {
+  margin-right: 0;
+  padding-right: 4px;
+  opacity: 1;
+}
+
+#custom-spotify {
+  border-top-color: #1db954;
+}
+
+#custom-notification {
+  font-family: "NotoSansMono Nerd Font";
+}
