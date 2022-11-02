@@ -48,6 +48,8 @@ h1 "Initializing OMZ + p10k ..."
 source $ZSH/oh-my-zsh.sh
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
+source ~/.nvm/nvm.sh
+
 #### Now, let's load all of the stuff and make some awesome :D
 umask u=rwx,g=rx,o=r
 
