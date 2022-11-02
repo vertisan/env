@@ -40,23 +40,52 @@ h3() {
 }
 
 zshconfig() {
-  h1 "Initializing ZSH ..."
+  h1 "Reloading ZSH ..."
   source ~/.zshrc
 }
+
+
+
+h1 "Initializing ZSH ..."
+zmodload zsh/zprof
+source ~/.zplug/init.zsh
+zplug "mafredri/zsh-async"
+zplug "lib/completion", from:oh-my-zsh
+zplug "plugins/git", from:oh-my-zsh
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "plugins/zsh-autosuggestions", from:oh-my-zsh
+zplug "wting/autojump", hook-build: "./install.py"
+zplug "lukechilds/zsh-nvm"
+
+if ! zplug check --verbose; then
+  printf "Install? [y/N]: "
+  if read -q; then
+    echo
+    zplug install
+  fi
+fi
+
+fpath=(~/.zsh.d/ $fpath)
+plugins=(zsh-nvm zsh-autosuggestions git docker docker-compose autojump zsh-syntax-highlighting dnf npm ssh-agent tmux fzf-tab)
+zstyle ':completion:*' fzf-search-display true
+
+#################
 
 h1 "Initializing OMZ + p10k ..."
 source $ZSH/oh-my-zsh.sh
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
-source ~/.nvm/nvm.sh
+
+
 
 #### Now, let's load all of the stuff and make some awesome :D
 umask u=rwx,g=rx,o=r
 
-# for conf in "$VRS_ENV/dotfiles/zsh/config.d/"*.zsh; do
 for conf in $(find "$VRS_ENV/dotfiles/zsh/config.d" -name "*.zsh"); do
   # h2 "Loading config '${conf}' for ZSH..."
   source "${conf}"
 done
-# unset conf
+unset conf
 
+
+source ~/.nvm/nvm.sh
