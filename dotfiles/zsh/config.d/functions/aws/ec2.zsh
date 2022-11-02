@@ -1,4 +1,9 @@
 ec2-list(){
+  if [[ "${AWS_PROFILE}" == "" ]]; then
+    h2 "The AWS_PROFILE is not available!"
+    return 1
+  fi
+
   aws ec2 describe-instances \
     --filter "Name=instance-state-name,Values=running" \
     --query "Reservations[*].Instances[*].[PublicIpAddress, Tags[?Key=='Name'].Value|[0], LaunchTime, InstanceId]" \
@@ -6,9 +11,14 @@ ec2-list(){
 }
 
 ec2-connect() {
-    HOST=$(ec2-list | fzf --layout=reverse --border=none  | awk '{print $2}' |sed 's/|//')
-    USER=$(gum choose "ec2-user" "admin" "ubuntu" "bitnami")
-    jssh $USER@$HOST
+  if [[ "${AWS_PROFILE}" == "" ]]; then
+    h2 "The AWS_PROFILE is not available!"
+    return 1
+  fi
+
+  HOST=$(ec2-list | fzf --layout=reverse --border=none  | awk '{print $2}' |sed 's/|//')
+  USER=$(gum choose "ec2-user" "admin" "ubuntu" "bitnami")
+  jssh $USER@$HOST
 }
 
 jz-connect() {
