@@ -42,3 +42,5 @@
 	autoSetupRemote = true
 [user]
 	signingkey = CC836A50CF78C685CA80EBC7D1DD451A7D77EBA3
+[alias]
+	squash-all = "!f(){ git reset $(git commit-tree HEAD^{tree} -m \"${1:-Be fresh!}\");};f"
