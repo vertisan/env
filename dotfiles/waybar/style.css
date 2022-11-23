@@ -46,6 +46,17 @@
   color: #ffffff;
 }
 
+button {
+    border: none;
+    border-radius: 0;
+
+}
+button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+    background: inherit;
+}
+
 /**
  * Main bar
  */
