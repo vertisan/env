@@ -1,7 +1,7 @@
 profile home {
   output eDP-1 mode 1920x1080@60Hz position 0,0
-  output "Dell Inc. DELL S2340L 5FYJ532S0CGT" mode 1920x1080@60Hz position 3840,0
   output "Dell Inc. DELL S2340L 5FYJ53BK07AT" mode 1920x1080@60Hz position 1920,0
+  output "Dell Inc. DELL S2240L YTFXY412045T" mode 1920x1080@60Hz position 3840,0
 }
 
 profile office_dell_management_1 {
