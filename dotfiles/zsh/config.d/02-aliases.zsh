@@ -26,10 +26,10 @@ alias ov3="openvpn3 $*"
 alias pyformat="autopep8 $*"
 alias ls="lsd"
 alias img="imv $*"
-alias copy="xclip -sel c < $1"
+alias copy="wl-copy < $*"
 alias bt="bluetoothctl $*"
 alias btc="bluetoothctl connect $*"
-alias cp="rsync -avh $*"
+#alias cp="rsync -avh $*"
 
 ## ---------------------
 ## Editor
