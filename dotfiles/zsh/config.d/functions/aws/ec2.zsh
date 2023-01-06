@@ -6,7 +6,7 @@ ec2-list(){
 
   aws ec2 describe-instances \
     --filter "Name=instance-state-name,Values=running" \
-    --query "Reservations[*].Instances[*].[PublicIpAddress, Tags[?Key=='Name'].Value|[0], LaunchTime, InstanceId]" \
+    --query "Reservations[*].Instances[*].[PublicIpAddress, PrivateIpAddress, Tags[?Key=='Name'].Value|[0], LaunchTime, InstanceId]" \
     --output table
 }
 
