@@ -11,7 +11,6 @@ api/.bash_history
 local_data/
 _local_data/
 _.dev*
-
+venv/
 *.code-workspace
 
-.nvmrc
