@@ -20,7 +20,9 @@ export SSH_ENV="$HOME/.ssh/environment"
 export DISABLE_MAGIC_FUNCTIONS=true
 export ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 export DISABLE_UNTRACKED_FILES_DIRTY=true
-
+export XDG_CURRENT_DESKTOP=sway
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
 
 declare -i term_width=120
 h1() {
