@@ -190,8 +190,8 @@
         ]
       },
       "on-click": "pavucontrol",
-      "on-scroll-up": "pactl set-sink-volume 0 2%+",
-      "on-scroll-down": "pactl set-sink-volume 0 2%-",
+      "on-scroll-up": "pactl set-sink-volume 0 +2%",
+      "on-scroll-down": "pactl set-sink-volume 0 -2%"
     },
     "memory": {
       "interval": 5,

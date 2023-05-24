@@ -49,11 +49,11 @@ alias dprune="docker system prune --all --force"
 ## ---------------------
 ## Terraform
 ## ---------------------
-alias tf="terraform $*"
-alias tfp="terraform plan $*"
-alias tfv="terraform validate $*"
-alias tfa="terraform apply $*"
-alias tfd="terraform destroy $*"
+# alias tf="terraform $*"
+# alias tfp="terraform plan $*"
+# alias tfv="terraform validate $*"
+# alias tfa="terraform apply $*"
+# alias tfd="terraform destroy $*"
 
 ## ---------------------
 ## AWS

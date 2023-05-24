@@ -17,8 +17,13 @@ ec2-connect() {
   fi
 
   HOST=$(ec2-list | fzf --layout=reverse --border=none  | awk '{print $2}' |sed 's/|//')
-  USER=$(gum choose "ec2-user" "admin" "ubuntu" "bitnami")
-  jssh $USER@$HOST
+  if [ "$HOST" != "" ]; then
+    USER=$(gum choose "ec2-user" "admin" "ubuntu" "bitnami")
+    PORT=$(gum choose "65522" "22")
+    jssh $USER@$HOST --port $PORT
+  else
+    h2 "No host has been selected!"
+  fi
 }
 
 jz-connect() {
@@ -35,4 +40,3 @@ jz-connect() {
     h2 "No host has been selected!"
   fi
 }
-

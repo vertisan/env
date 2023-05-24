@@ -44,3 +44,13 @@
 	signingkey = CC836A50CF78C685CA80EBC7D1DD451A7D77EBA3
 [alias]
 	squash-all = "!f(){ git reset $(git commit-tree HEAD^{tree} -m \"${1:-Be fresh!}\");};f"
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[credential "https://git.jazzy.pro"]
+	helper = 
+	helper = !/usr/bin/glab auth git-credential
+[pull]
+	rebase = false

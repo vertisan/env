@@ -7,4 +7,5 @@ branch() {
   h1 "Switching branch into '${BRANCH}'..."
   git checkout "${BRANCH}"
   git pull
+  git lfs pull || h2 "Git LFS is not configured, ignoring..."
 }

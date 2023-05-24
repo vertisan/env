@@ -4,7 +4,8 @@ dkill() {
     h2 "Killing container '$1'..."
     docker kill $1
   else
-    h2 "Killing all containers ..."
-    docker kill $(docker ps -q)
+    CONTAINER=$(docker ps --format='{{.ID}} [{{.Names}}]' | fzf --border=none --layout=reverse | awk '{print $1}')
+    h2 "Killing container '$CONTAINER'"
+    docker kill $CONTAINER
   fi
 }

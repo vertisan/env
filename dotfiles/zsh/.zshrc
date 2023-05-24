@@ -23,6 +23,7 @@ export DISABLE_UNTRACKED_FILES_DIRTY=true
 export XDG_CURRENT_DESKTOP=sway
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
+#export DOCKER_BUILDKIT=0
 
 declare -i term_width=120
 h1() {
@@ -51,6 +52,7 @@ zshconfig() {
 h1 "Initializing ZSH ..."
 zmodload zsh/zprof
 source ~/.zplug/init.zsh
+zplug "MichaelAquilina/zsh-autoswitch-virtualenv"
 zplug "mafredri/zsh-async"
 zplug "lib/completion", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
@@ -68,7 +70,7 @@ if ! zplug check --verbose; then
 fi
 
 fpath=(~/.zsh.d/ $fpath)
-plugins=(zsh-nvm zsh-autosuggestions git docker docker-compose autojump zsh-syntax-highlighting dnf npm ssh-agent tmux fzf-tab)
+plugins=(autoswitch_virtualenv zsh-autosuggestions git docker docker-compose autojump zsh-syntax-highlighting dnf npm ssh-agent tmux fzf-tab)
 zstyle ':completion:*' fzf-search-display true
 
 #################
@@ -91,3 +93,11 @@ unset conf
 
 
 source ~/.nvm/nvm.sh
+
+# pnpm
+export PNPM_HOME="/home/vertisan/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

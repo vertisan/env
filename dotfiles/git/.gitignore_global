@@ -1,16 +1,20 @@
 .idea/
-app/config/config_prod.yml
-setup_done.lock
 .jira
+
+# Docker
 docker-compose.vertisan.yml
 docker-compose.vrs.yml
-docker/docker-compose.vrs.yml
-docker-compose-vertisan.yml.php_cs.cache
 .php_cs.cache
 api/.bash_history
 local_data/
 _local_data/
 _.dev*
-venv/
+
+# VSCode
 *.code-workspace
+
+
+# Python
+venv/
+.venv
 

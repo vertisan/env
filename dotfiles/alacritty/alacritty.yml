@@ -4,7 +4,7 @@
 env:
   TERM: xterm-256color
 window:
-  opacity: 0.9
+  opacity: 0.7
   dimensions:
     columns: 80
     lines: 20
@@ -62,16 +62,16 @@ working_directory: None
 #      args: []
 
 mouse_bindings:
-  - { mouse: Middle, mods: Shift, action: PasteSelection }
-  - { mouse: Right, mods: Shift, action: Paste }
-  - { mouse: Middle, action: None }
-  - { mouse: Right, action: None }
+  - {mouse: Middle, mods: Shift, action: PasteSelection}
+  - {mouse: Right, mods: Shift, action: Paste}
+  - {mouse: Middle, action: None}
+  - {mouse: Right, action: None}
 
 key_bindings:
-  - { key: Return, mods: Control|Shift, action: SpawnNewInstance }
-  - { key: V, mods: Alt, action: Paste }
-  - { key: J, mods: Alt, action: IncreaseFontSize }
-  - { key: K, mods: Alt, action: DecreaseFontSize }
+  - {key: Return, mods: Control|Shift, action: SpawnNewInstance}
+  - {key: V, mods: Alt, action: Paste}
+  - {key: J, mods: Alt, action: IncreaseFontSize}
+  - {key: K, mods: Alt, action: DecreaseFontSize}
   # - { key: J,        mods: Shift, action: ScrollLineUp}
   # - { key: K,        mods: Shift, action: ScrollLineDown}
   # { mouse: Middle, action: PasteSelection }
@@ -79,8 +79,8 @@ key_bindings:
   #- { key: Copy,                                 action: Copy           }
   #- { key: L,         mods: Control,             action: ClearLogNotice }
   #- { key: L,         mods: Control, mode: ~Vi,  chars: "\x0c"          }
-  - { key: PageUp, mods: Shift, action: ScrollPageUp }
-  - { key: PageDown, mods: Shift, action: ScrollPageDown }
+  - {key: PageUp, mods: Shift, action: ScrollPageUp}
+  - {key: PageDown, mods: Shift, action: ScrollPageDown}
   #- { key: Home,      mods: Shift,   mode: ~Alt, action: ScrollToTop,   }
   #- { key: End,       mods: Shift,   mode: ~Alt, action: ScrollToBottom }
 
@@ -88,13 +88,13 @@ colors:
   # COLORSCHEME: dracula.yaml
   # Default colors
   primary:
-    background: "0x282a36"
-    foreground: "0xf8f8f2"
+    background: "#000000" # "#282a36"
+    foreground: "#f8f8f2"
 
   # Normal colors
   cursor:
-    text: "0x2c2c2c"
-    cursor: "0xd9d9d9"
+    text: "#2c2c2c"
+    cursor: "#d9d9d9"
 
   # Normal colors
   vi_mode_cursor:

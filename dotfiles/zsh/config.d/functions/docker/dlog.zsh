@@ -1,6 +1,7 @@
 dlog() {
   h2 "Getting logs for container '$1'..."
-  docker logs $1 -f
+  CONTAINER=$(docker ps --format='{{.ID}} [{{.Names}}]' | fzf --border=none --layout=reverse | awk '{print $1}')
+  docker logs $CONTAINER -f
 }
 
 # Clear logs from container
