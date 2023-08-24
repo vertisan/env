@@ -4,6 +4,8 @@
 [includeIf "gitdir:~/Projects/StreamSage/"]
   path = ~/Environment/dotfiles/git/git-config/.gitconfig-streamsage
 
+[includeIf "gitdir:~/Projects/propergate/"]
+  path = ~/Environment/dotfiles/git/git-config/.gitconfig-streamsage
 
 [core]
 	excludesfile = ~/Environment/dotfiles/git/.gitignore_global
@@ -54,3 +56,5 @@
 	helper = !/usr/bin/glab auth git-credential
 [pull]
 	rebase = false
+[url "https://"]
+	insteadOf = git://

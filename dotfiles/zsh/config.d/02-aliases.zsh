@@ -30,6 +30,8 @@ alias copy="wl-copy < $*"
 alias bt="bluetoothctl $*"
 alias btc="bluetoothctl connect $*"
 #alias cp="rsync -avh $*"
+alias cat="bat --paging=never $*"
+alias man="tldr $*"
 
 ## ---------------------
 ## Editor
@@ -64,3 +66,6 @@ alias awsl="awslocal $*"
 ## K8S
 ## ---------------------
 alias k="kubectl $*"
+alias kube="kubectl $*"
+alias eks="eksctl $*"
+

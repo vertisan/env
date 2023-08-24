@@ -7,5 +7,7 @@ loadenv() {
     ENV=.env
   fi
 
-  export $(cat $ENV | xargs)
+  cat $ENV
+  export $(grep -v '^#' $ENV | xargs) 
+  #export $(cat $ENV | xargs)
 }
