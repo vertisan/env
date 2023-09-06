@@ -4,4 +4,8 @@
 StreamSage/
 vscode_workspaces/
 *-secret.asc
-master.key
+*.key
+*.subkey
+*.pdf
+
+*.gpg

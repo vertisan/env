@@ -43,7 +43,8 @@
 [push]
 	autoSetupRemote = true
 [user]
-	signingkey = CC836A50CF78C685CA80EBC7D1DD451A7D77EBA3
+  # signingkey = CC836A50CF78C685CA80EBC7D1DD451A7D77EBA3
+  signingkey = 547C688EF2BC5035A5970B09645DE7B9D00369CE
 [alias]
 	squash-all = "!f(){ git reset $(git commit-tree HEAD^{tree} -m \"${1:-Be fresh!}\");};f"
 [filter "lfs"]
