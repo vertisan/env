@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-swaylock --image /home/vertisan/Environment/media/wallpapers/current_lockscreen.jpg
+# swaylock --image /home/vertisan/Environment/media/wallpapers/current_lockscreen.jpg
+swaylock --image /home/vertisan/Environment/media/wallpapers-16_10/screenlock_1.jpg
 
 #swaylock --indicator-radius 100 \
 #  --indicator-thickness 12 \

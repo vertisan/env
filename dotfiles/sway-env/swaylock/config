@@ -1,6 +1,7 @@
 screenshots
 #effect-blur=15x10
-effect-compose=/home/vertisan/Environment/media/wallpapers/current_lockscreen.jpg
+#effect-compose=/home/vertisan/Environment/media/wallpapers/current_lockscreen.jpg
+effect-compose=/home/vertisan/Environment/media/wallpapers-16_10/screenlock_1.jpg
 
 clock
 timestr=%H:%M %p
@@ -14,7 +15,7 @@ key-hl-color=00b0cc
 
 separator-color=ff000000
 
-inside-color=002945
+inside-color=00294500
 inside-clear-color=002945
 inside-caps-lock-color=002945
 inside-ver-color=002945

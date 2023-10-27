@@ -4,6 +4,14 @@ profile home {
   output "Dell Inc. DELL S2240L YTFXY412045T" mode 1920x1080@60Hz position 3840,0
 }
 
+
+profile home_2 {
+  output eDP-1 mode 1920x1080@60Hz position 0,0
+  output "Dell Inc. DELL U2421E 2GRZCH3" mode 1920x1200@60Hz position 1920,0
+  output "Dell Inc. DELL U2421E 8DRZCH3" mode 1920x1200@60Hz position 3840,0
+}
+
+
 profile office_dell_management_1 {
   output eDP-1 mode 1920x1080@60Hz position 0,0
   output "Dell Inc. DELL U2421HE J2L8223" mode 1920x1080@60Hz position 1920,0
