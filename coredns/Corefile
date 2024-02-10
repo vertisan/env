@@ -1,0 +1,15 @@
+.:53 {
+    bind 0.0.0.0 
+    hosts /etc/coredns/hosts/hosts {
+      fallthrough
+    }
+    forward . 8.8.8.8 8.8.4.4
+    log
+    errors
+}
+
+example.com:53 {
+    file /root/example.db
+    log
+    errors
+}
