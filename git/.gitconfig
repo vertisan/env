@@ -1,0 +1,63 @@
+# [includeIf "gitdir:~/Projects/"]
+#   path = /Users/vertisan/Environment/git/config/personal.git-config
+
+[user]
+	name = Paweł Farys
+	email = pmg.farys@gmail.com
+	signingkey = 547C688EF2BC5035A5970B09645DE7B9D00369CE
+
+[core]
+	editor = vim
+	excludesfile = /Users/vertisan/.gitignore
+
+[init]
+	defaultBranch = master
+
+[commit]
+	gpgsign = true
+
+[interactive]
+    diffFilter = delta --color-only
+
+[pager]
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+
+# Delta settings
+[delta]
+    features = side-by-side line-numbers decorations
+    syntax-theme = Dracula
+    plus-style = syntax "#003800"
+    minus-style = syntax "#3f0001"
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
+    hunk-header-decoration-style = cyan box ul
+[delta "line-numbers"]
+    line-numbers-left-style = cyan
+    line-numbers-right-style = cyan
+    line-numbers-minus-style = 124
+    line-numbers-plus-style = 28
+
+[push]
+	autoSetupRemote = true
+
+[alias]
+	squash-all = "!f(){ git reset $(git commit-tree HEAD^{tree} -m \"${1:-Be fresh!}\");};f"
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[pull]
+	rebase = false
+
+[url "https://"]
+	insteadOf = git://
+[gpg]
+	program = /opt/homebrew/bin/gpg
