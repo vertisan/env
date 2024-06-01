@@ -68,6 +68,7 @@ fi
 
 fpath=(~/.zsh.d/ $fpath)
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+fpath+=~/.zfunc
 plugins=(zsh-autosuggestions git autojump zsh-syntax-highlighting dnf npm ssh-agent fzf-tab)
 zstyle ':completion:*' fzf-search-display true
 
@@ -118,3 +119,15 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/vault vault
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+source <(kubectl completion zsh)
+alias kubectl=kubecolor
+compdef kubecolor=kubectl
+
+# pnpm
+export PNPM_HOME="/Users/vertisan/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

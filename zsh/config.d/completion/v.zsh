@@ -1,9 +1,9 @@
-#compdef cli
-compdef _cli v
+#compdef v
+compdef _v v
 
-# zsh completion for v                                  -*- shell-script -*-
+# zsh completion for v                                    -*- shell-script -*-
 
-__cli_debug()
+__v_debug()
 {
     local file="$BASH_COMP_DEBUG_FILE"
     if [[ -n ${file} ]]; then
@@ -11,7 +11,7 @@ __cli_debug()
     fi
 }
 
-_cli()
+_v()
 {
     local shellCompDirectiveError=1
     local shellCompDirectiveNoSpace=2
@@ -23,21 +23,21 @@ _cli()
     local lastParam lastChar flagPrefix requestComp out directive comp lastComp noSpace keepOrder
     local -a completions
 
-    __cli_debug "\n========= starting completion logic =========="
-    __cli_debug "CURRENT: ${CURRENT}, words[*]: ${words[*]}"
+    __v_debug "\n========= starting completion logic =========="
+    __v_debug "CURRENT: ${CURRENT}, words[*]: ${words[*]}"
 
     # The user could have moved the cursor backwards on the command-line.
     # We need to trigger completion from the $CURRENT location, so we need
     # to truncate the command-line ($words) up to the $CURRENT location.
     # (We cannot use $CURSOR as its value does not work when a command is an alias.)
     words=("${=words[1,CURRENT]}")
-    __cli_debug "Truncated words[*]: ${words[*]},"
+    __v_debug "Truncated words[*]: ${words[*]},"
 
     lastParam=${words[-1]}
     lastChar=${lastParam[-1]}
-    __cli_debug "lastParam: ${lastParam}, lastChar: ${lastChar}"
+    __v_debug "lastParam: ${lastParam}, lastChar: ${lastChar}"
 
-    # For zsh, when completing a flag with an = (e.g., cli -n=<TAB>)
+    # For zsh, when completing a flag with an = (e.g., v -n=<TAB>)
     # completions must be prefixed with the flag
     setopt local_options BASH_REMATCH
     if [[ "${lastParam}" =~ '-.*=' ]]; then
@@ -50,22 +50,22 @@ _cli()
     if [ "${lastChar}" = "" ]; then
         # If the last parameter is complete (there is a space following it)
         # We add an extra empty parameter so we can indicate this to the go completion code.
-        __cli_debug "Adding extra empty parameter"
+        __v_debug "Adding extra empty parameter"
         requestComp="${requestComp} \"\""
     fi
 
-    __cli_debug "About to call: eval ${requestComp}"
+    __v_debug "About to call: eval ${requestComp}"
 
     # Use eval to handle any environment variables and such
     out=$(eval ${requestComp} 2>/dev/null)
-    __cli_debug "completion output: ${out}"
+    __v_debug "completion output: ${out}"
 
     # Extract the directive integer following a : from the last line
     local lastLine
     while IFS='\n' read -r line; do
         lastLine=${line}
     done < <(printf "%s\n" "${out[@]}")
-    __cli_debug "last line: ${lastLine}"
+    __v_debug "last line: ${lastLine}"
 
     if [ "${lastLine[1]}" = : ]; then
         directive=${lastLine[2,-1]}
@@ -75,16 +75,16 @@ _cli()
         out=${out[1,-$suffix]}
     else
         # There is no directive specified.  Leave $out as is.
-        __cli_debug "No directive found.  Setting do default"
+        __v_debug "No directive found.  Setting do default"
         directive=0
     fi
 
-    __cli_debug "directive: ${directive}"
-    __cli_debug "completions: ${out}"
-    __cli_debug "flagPrefix: ${flagPrefix}"
+    __v_debug "directive: ${directive}"
+    __v_debug "completions: ${out}"
+    __v_debug "flagPrefix: ${flagPrefix}"
 
     if [ $((directive & shellCompDirectiveError)) -ne 0 ]; then
-        __cli_debug "Completion received error. Ignoring completions."
+        __v_debug "Completion received error. Ignoring completions."
         return
     fi
 
@@ -95,11 +95,11 @@ _cli()
     while IFS='\n' read -r comp; do
         # Check if this is an activeHelp statement (i.e., prefixed with $activeHelpMarker)
         if [ "${comp[1,$endIndex]}" = "$activeHelpMarker" ];then
-            __cli_debug "ActiveHelp found: $comp"
+            __v_debug "ActiveHelp found: $comp"
             comp="${comp[$startIndex,-1]}"
             if [ -n "$comp" ]; then
                 compadd -x "${comp}"
-                __cli_debug "ActiveHelp will need delimiter"
+                __v_debug "ActiveHelp will need delimiter"
                 hasActiveHelp=1
             fi
 
@@ -116,7 +116,7 @@ _cli()
             local tab="$(printf '\t')"
             comp=${comp//$tab/:}
 
-            __cli_debug "Adding completion: ${comp}"
+            __v_debug "Adding completion: ${comp}"
             completions+=${comp}
             lastComp=$comp
         fi
@@ -127,19 +127,19 @@ _cli()
     # - file completion will be performed (so there will be choices after the activeHelp)
     if [ $hasActiveHelp -eq 1 ]; then
         if [ ${#completions} -ne 0 ] || [ $((directive & shellCompDirectiveNoFileComp)) -eq 0 ]; then
-            __cli_debug "Adding activeHelp delimiter"
+            __v_debug "Adding activeHelp delimiter"
             compadd -x "--"
             hasActiveHelp=0
         fi
     fi
 
     if [ $((directive & shellCompDirectiveNoSpace)) -ne 0 ]; then
-        __cli_debug "Activating nospace."
+        __v_debug "Activating nospace."
         noSpace="-S ''"
     fi
 
     if [ $((directive & shellCompDirectiveKeepOrder)) -ne 0 ]; then
-        __cli_debug "Activating keep order."
+        __v_debug "Activating keep order."
         keepOrder="-V"
     fi
 
@@ -156,17 +156,17 @@ _cli()
         done
         filteringCmd+=" ${flagPrefix}"
 
-        __cli_debug "File filtering command: $filteringCmd"
+        __v_debug "File filtering command: $filteringCmd"
         _arguments '*:filename:'"$filteringCmd"
     elif [ $((directive & shellCompDirectiveFilterDirs)) -ne 0 ]; then
         # File completion for directories only
         local subdir
         subdir="${completions[1]}"
         if [ -n "$subdir" ]; then
-            __cli_debug "Listing directories in $subdir"
+            __v_debug "Listing directories in $subdir"
             pushd "${subdir}" >/dev/null 2>&1
         else
-            __cli_debug "Listing directories in ."
+            __v_debug "Listing directories in ."
         fi
 
         local result
@@ -177,17 +177,17 @@ _cli()
         fi
         return $result
     else
-        __cli_debug "Calling _describe"
+        __v_debug "Calling _describe"
         if eval _describe $keepOrder "completions" completions $flagPrefix $noSpace; then
-            __cli_debug "_describe found some completions"
+            __v_debug "_describe found some completions"
 
             # Return the success of having called _describe
             return 0
         else
-            __cli_debug "_describe did not find completions."
-            __cli_debug "Checking if we should do file completion."
+            __v_debug "_describe did not find completions."
+            __v_debug "Checking if we should do file completion."
             if [ $((directive & shellCompDirectiveNoFileComp)) -ne 0 ]; then
-                __cli_debug "deactivating file completion"
+                __v_debug "deactivating file completion"
 
                 # We must return an error code here to let zsh know that there were no
                 # completions found by _describe; this is what will trigger other
@@ -196,7 +196,7 @@ _cli()
                 return 1
             else
                 # Perform file completion
-                __cli_debug "Activating file completion"
+                __v_debug "Activating file completion"
 
                 # We must return the result of this command, so it must be the
                 # last command, or else we must store its result to return it.
@@ -207,6 +207,6 @@ _cli()
 }
 
 # don't run the completion function when being source-ed or eval-ed
-if [ "$funcstack[1]" = "_cli" ]; then
-    _cli
+if [ "$funcstack[1]" = "_v" ]; then
+    _v
 fi

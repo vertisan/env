@@ -35,6 +35,7 @@ alias awsl="awslocal $*"
 ## ---------------------
 ## K8S
 ## ---------------------
+# alias kubectl="kubecolor"
 alias k="kubectl $*"
 alias eks="eksctl $*"
 alias ka="kubectl apply -f $*"

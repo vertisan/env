@@ -7,7 +7,7 @@
 	signingkey = 547C688EF2BC5035A5970B09645DE7B9D00369CE
 
 [core]
-	editor = vim
+	editor = nvim
 	excludesfile = /Users/vertisan/.gitignore
 
 [init]
