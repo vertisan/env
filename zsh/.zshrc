@@ -25,19 +25,31 @@ source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 
 declare -i term_width=50
 h1() {
-  declare border padding text
-  border='\e[1;34m'"$(printf '=%.0s' $(seq 1 "$term_width"))"'\e[0m'
-  padding="$(printf ' %.0s' $(seq 1 $(((term_width - $(wc -m <<<"$*")) / 2))))"
-  text="\\e[1m$*\\e[0m"
-  echo -e "$border"
-  echo -e "${padding}${text}${padding}"
-  echo -e "$border"
+  if [ -z $ZSH_NO_HEADERS ]; then
+    declare border padding text
+    border='\e[1;34m'"$(printf '=%.0s' $(seq 1 "$term_width"))"'\e[0m'
+    padding="$(printf ' %.0s' $(seq 1 $(((term_width - $(wc -m <<<"$*")) / 2))))"
+    text="\\e[1m$*\\e[0m"
+    echo -e "$border"
+    echo -e "${padding}${text}${padding}"
+    echo -e "$border"
+  else
+    echo $*
+  fi
 }
 h2() {
-  printf "\e[1;33m===>\e[37;1m $*\e[0m\n"
+  if [ -z $ZSH_NO_HEADERS ]; then
+    printf "\e[1;33m===>\e[37;1m $*\e[0m\n"
+  else
+    echo $*
+  fi
 }
 h3() {
-  printf "\e[1;33m====>\e[37;1m $*\e[0m\n"
+  if [ -z $ZSH_NO_HEADERS ]; then
+    printf "\e[1;33m====>\e[37;1m $*\e[0m\n"
+  else
+    echo $*
+  fi
 }
 
 zshconfig() {
