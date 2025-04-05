@@ -8,3 +8,11 @@ complete -C '/usr/local/bin/aws_completer' aws
 autoload -U add-zsh-hook
 
 [[ /opt/homebrew/bin/kubectl ]] && source <(kubectl completion zsh)
+
+
+
+## Load system autocompletions
+# for conf in $(find "/opt/homebrew/share/zsh/site-functions"); do
+#   source "${conf}"
+# done
+# unset conf

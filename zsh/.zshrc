@@ -53,7 +53,7 @@ h3() {
 }
 
 zshconfig() {
-  h1 "Reloading ZSH ..."
+  h2 "Reloading ZSH ..."
   source ~/.zshrc
 }
 
@@ -86,7 +86,7 @@ zstyle ':completion:*' fzf-search-display true
 
 #################
 
-h1 "Initializing OMZ + p10k ..."
+h2 "Initializing OMZ + p10k ..."
 source $ZSH/oh-my-zsh.sh
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
@@ -127,6 +127,8 @@ load-nvmrc() {
 #add-zsh-hook chpwd load-nvmrc
 #load-nvmrc
 
+eval "$(direnv hook zsh)"
+
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/vault vault
 
@@ -143,3 +145,9 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# Nix
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+# End Nix

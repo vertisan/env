@@ -2,6 +2,12 @@
 export HISTTIMEFORMAT="%d/%m/%y %T "
 export PATH=$PATH:$HOME/Library/Application\ Support/JetBrains/Toolbox/scripts/
 export PATH=$PATH:$HOME/.local/bin/
+export PATH="$PATH:/opt/homebrew/opt/postgresql@15/bin"
+export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.12/bin"
+export PATH="$PATH:$HOME/.krew/bin"
+export PATH="$PATH:$HOME/go/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/.sonar-scanner/bin"
 
 ### Google Cloud
 if [ -f '/Users/vertisan/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/vertisan/google-cloud-sdk/path.zsh.inc'; fi
@@ -23,10 +29,17 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 ## K8s
-export KUBE_EDITOR=vim
+export KUBE_EDITOR=nvim
 
 ## Vault
-export VAULT_ADDR="http://10.0.69.10:10120"
+export VAULT_ADDR="https://vlt.vrsf.in"
+# export VAULT_SKIP_VERIFY=1 # Required due to too long certificates TTL
+
+## Consul
+export CONSUL_HTTP_ADDR="http://10.0.30.11:8500"
 
 ## Docker
-export DOCKER_DEFAULT_PLATFORM=linux/amd64
+export DOCKER_DEFAULT_PLATFORM="linux/amd64"
+
+## SonarQube
+export SONARQUBE_URL="http://sonarqube.vm.vrsf.in:9000"
