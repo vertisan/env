@@ -36,10 +36,7 @@ export VAULT_ADDR="https://vlt.vrsf.in"
 # export VAULT_SKIP_VERIFY=1 # Required due to too long certificates TTL
 
 ## Consul
-export CONSUL_HTTP_ADDR="http://10.0.30.11:8500"
+export CONSUL_HTTP_ADDR="https://consul.vrsf.in"
 
 ## Docker
 export DOCKER_DEFAULT_PLATFORM="linux/amd64"
-
-## SonarQube
-export SONARQUBE_URL="http://sonarqube.vm.vrsf.in:9000"

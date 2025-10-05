@@ -5,8 +5,8 @@
 
 ## ...
 .envrc
+.nvmrc
 
-.local-data
-.local_data
+.local*
 
 terraform.local

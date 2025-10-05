@@ -69,3 +69,9 @@ alias ap="ansible-playbook $*"
 ## G C L O U D
 ## ---------------------
 alias gcp="gcloud $*"
+
+
+## ---------------------
+## O T H E R S
+## ---------------------
+alias gcl="gitlab-ci-local"
